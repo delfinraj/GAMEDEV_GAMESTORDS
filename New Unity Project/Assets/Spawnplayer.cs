@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Spawnplayer : MonoBehaviour
+public class Spawnplayer : MonoBehaviourPunCallbacks
 {
+    public GameObject PauseCanvase;
+    public bool paused = false;
     public GameObject playerprefab;
     public float minX;
     public float maxX;
@@ -16,6 +18,17 @@ public class Spawnplayer : MonoBehaviour
         PhotonNetwork.Instantiate(playerprefab.name, randempos, Quaternion.identity);  
     }
 
+  /*  public void Quit()
+    {
+        Shooting st = new Shooting();
+        st.Called();
+       // PhotonNetwork.LeaveRoom();
+    }*/
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel(0);
+    }
     // Update is called once per frame
     void Update()
     {

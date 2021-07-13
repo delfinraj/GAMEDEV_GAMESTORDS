@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    void Start()
+    {
+        StartCoroutine(SelfDestruct());
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -11,4 +16,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
+
 }

@@ -3,7 +3,10 @@ guid: 6a422ecd8face1644a0576f4ea17e36f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - PauseCanvase: {instanceID: 0}
+  - playerprefab: {fileID: 8499106170989967378, guid: 43f770144ccb6a8478d297e1a2e58cb1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
